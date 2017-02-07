@@ -22,6 +22,9 @@ angular.module('humanize', [])
   .filter('humanizeTruncateWords', (...args) =>
     humanize.truncatewords.apply(humanize, args))
   .filter('humanizeNum', (number = 0, precision = 1) => {
+    if (number === 0) {
+      return 0;
+    }
     if (number > -1 && number < 1) {
       return number.toFixed(precision);
     }
