@@ -20,4 +20,13 @@ angular.module('humanize', [])
   .filter('humanizeTruncateChars', (...args) =>
     humanize.truncatechars.apply(humanize, args))
   .filter('humanizeTruncateWords', (...args) =>
-    humanize.truncatewords.apply(humanize, args));
+    humanize.truncatewords.apply(humanize, args))
+  .filter('humanizeNum', (number = 0, precision = 1) => {
+    if (number > -1 && number < 1) {
+      return number.toFixed(precision);
+    }
+    let suffixIndex = Math.floor(Math.log(Math.abs(number)) / Math.log(1000));
+    let value = number / Math.pow(1000, suffixIndex);
+    return value.toFixed(precision) +
+      ['', 'k', 'M', 'B', 'T', 'Q'][suffixIndex];
+  });
