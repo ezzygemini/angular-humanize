@@ -1,6 +1,6 @@
 angular.module('humanize', [])
-  .filter('humanizeTime', () =>
-    () => humanize.time())
+  .filter('humanizeTime', () => (...args) =>
+    humanize.time.apply(humanize, args))
   .filter('humanizeDate', (...args) =>
     humanize.date.apply(humanize, args))
   .filter('humanizeNumberFormat', (...args) =>
