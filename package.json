@@ -5,9 +5,15 @@
     "type": "git",
     "url": "https://github.com/ezzygemini/angular-humanize.git"
   },
+  "scripts": {
+    "testing": "node node_modules/testing"
+  },
   "license": "MIT",
   "version": "0.1.0",
   "dependencies": {
     "humanize": "0.0.9"
+  }
+  "devDependencies": {
+    "testing": "ezzygemini/testing"
   }
 }
